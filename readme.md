@@ -1,4 +1,4 @@
 
 gSheets &rarr; HTML
 
-[desktop](app/stationery/screenshot.png)
+![desktop](app/stationery/screenshot.png)
