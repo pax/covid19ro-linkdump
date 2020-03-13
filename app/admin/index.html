@@ -1,0 +1,140 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="icon" type="image/png" href="/favicon.png">
+<title>&middot;/&middot; data updater</title>
+
+<style>
+  body {
+   background-color: WhiteSmoke;
+   font-family: sans-serif;
+   margin-bottom: 0;
+   padding-bottom: 0;
+ }
+#wrapper {
+  margin: 1ex 5%;
+}
+button {
+  background-color: AntiqueWhite;
+  font-size: 1em;
+  color: #555;
+  padding: .75ex 1.2ex;
+  border-radius: 0;
+  border: 1px solid #DDD;
+  /*box-shadow: 1px 1px 5px #CCC;*/
+  margin: .5ex .5ex 0 0;
+}
+button small {
+}
+button:hover {
+  background-color: Beige;
+  /*box-shadow: 1px 1px 3px #999;*/
+  /*color: LightYellow;*/
+  /*border-color: LightYellow;*/
+  cursor: pointer;
+}
+#progress {
+  /*font-size: 1em;*/
+  color: #669;
+  max-width: 80%;
+}
+#relative_progress {
+  /*font-family: monospace;*/
+  background-color: White;
+  border:1px solid #DDD;
+  border-radius: 3px;
+}
+#relative_progress span {
+  display: inline-block;
+  text-align: center;
+  border-radius: 2px;
+  background-color: #BBD;
+  box-shadow: 1px 0 0 #888;
+}
+#relative_progress:empty{
+  border-color: transparent;
+  background-color: transparent;
+}
+#status {
+  font-family: monospace;
+  overflow: auto;
+  max-height: 50vh;
+  background-color: rgba(255,255,255,.5);
+  padding: 1em;
+}
+#status:empty:after{
+  content: 'STATUS_';
+  color: #999;
+  font-size: .8em;;
+}
+
+a {
+  text-decoration: none;
+}
+#renderHTML a, .helpers a {
+  border:1px solid #DDD; 
+  background-color: FloralWhite;
+  padding: .5ex 1ex;
+}
+.red {
+  color: red;
+}
+#renderHTML  {
+  margin: 1em 0;
+}
+#renderHTML > div {
+/*  border:2px dashed #DDD;
+  background-color: #fff;
+  opacity: .6;
+  border-radius: 4px;
+  padding: 1em; display: inline-block;*/
+}
+@media screen and (min-width: 680px) {
+  div.column {
+/*    display: inline-block;
+    vertical-align: top;
+    min-width: 20em;*/
+    /*border:1px dotted #999; */
+  }
+}
+</style></head>
+<body>
+  <div id="wrapper">
+    <div class="column">
+      <p>
+        <a href="../../">&larr;<span style="color: red;">&hearts;</span></a>
+      </p>
+      <button id="fetch_google_sheets"><small><b>1</b> Get </small>gSheets URL list &rarr; JSON</button>
+      <!-- <button id="fetch_embed_info"><small>Fetch </small>embed info</button> -->
+      <!-- <button id="generate_json"><small>Generate </small>JSON</button> -->
+      <button id="fetch_icons"> <small><b>2</b> Fetch </small>favicons</button>
+      <button id="generate_html"> <small><b>3</b> Generate </small>HTML</button>
+      <!-- <p class="helpers">
+        <a href="render-info.php">Show fetched info</a> 
+        <a href="cache-manager.php">Manage cache</a>
+        Logs: <a href=""><s>Error log</s></a>, <a href=""><s>fetching</s></a>
+      </p> -->
+
+    </div>
+    <div id="renderHTML" class="column">
+      <!-- <div>
+        <small >Generate static HTML collections:</small>
+         <a href="#" target_file="muiepsd"          collection="muiePSD"          >muie psd</a>
+         <a href="#" target_file="index"            collection="miting-diaspora"  >miting diaspora</a>
+         <a href="#" target_file="timeline"         collection="timeline"         >timeline</a>
+         <a href="#" target_file="meme"             collection="meme"             >meme</a>
+         <a href="#" target_file="guvernarea-psd"   collection="guvernarea-psd"   >guvernarea PSD</a>
+         <a href="#" target_file="dragnea-asasinat" collection="dragnea-asasinat" >Liviu &amp; let die</a>
+         <a href="#" target_file="referendum-constitutie" collection="referendum-constitutie" >Referendum 'no homo'</a>
+      </div> -->
+    </div>
+    <div class="column">
+      <div id="progress_counter"></div>
+      <div id="relative_progress"></div>
+      <div id="progress"></div>
+      <div id="status"></div>
+    </div>
+
+  </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
