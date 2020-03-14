@@ -14,7 +14,7 @@ $sheets=array(
   'Monitorizare (Global)' => 333501499,
   'Site-uri dedicate' => 519156796,
   'Articole' => 147533401,
-  'Quality time' => 1148678370
+  'Quality time, casnice' => 1148678370
 );
 
 date_default_timezone_set('Europe/Bucharest');
