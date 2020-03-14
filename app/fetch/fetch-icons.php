@@ -24,7 +24,7 @@ $posts = json_decode(file_get_contents($sourceJson, true));
 $icnt = 0;
 foreach ($posts as $ctgname => $onectg) {
   foreach ($onectg as $id => $oneurl) {
-    if ($oneurl->url) {
+    if ($oneurl->url && trim($oneurl->url) != '') {
       $xdomain = parse_url($oneurl->url);
       $bazeurl =  $xdomain['host'];
       if (!file_exists($targetDIR . $bazeurl . '.png')) {
