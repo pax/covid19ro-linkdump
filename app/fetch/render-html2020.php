@@ -1,7 +1,7 @@
 <?php
 // $url = "http" . (!empty($_SERVER['HTTPS']) ? "s" : "") .   "://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
-// echo '<meta property="og:image" content="'. $url.'app/stationery/covid19_xs_mit.edu-x2.png">';
+// echo '<meta property="og:image" content="'. $url.'app/stationery/img/covid19_xs_mit.edu-x2.png">';
 if (!$_GET) {
   echo 'gimme some data';
   exit;
@@ -12,16 +12,15 @@ if (!isset($_GET["action"]) && ($_GET["action"] != "write"))  {
   exit;
 }
 
+setlocale(LC_TIME, "ro_RO");
+date_default_timezone_set('Europe/Bucharest');
+require('functions-app.php');
+require('functions-generic.php');
+
 $sourceJson = '../data/google-sheets.json';
 $targetfile= '../../index.html';
 $iconsDIR = '../data/icons/';
 $iconsDIRrel = 'app/data/icons/';
-setlocale(LC_TIME, "ro_RO");
-date_default_timezone_set('Europe/Bucharest');
-require('../functions.php');
-require('../functions-generic.php');
-
-
 $out = $ctgznav = '';
 $header = file_get_contents('header.html');
 $posts = json_decode(file_get_contents($sourceJson, true));
@@ -29,23 +28,33 @@ $posts = json_decode(file_get_contents($sourceJson, true));
 foreach ($posts as $ctgname => $onectg) {
   $out .= '<div class="xctg xbox"><h2 id="ctx_' . sluggify($ctgname) . '">' . $ctgname . '</h2><ul class="list-unstyled">';
   $ctgznav .= '<li><a href="#ctx_' . sluggify($ctgname) . '">' . $ctgname . '</a> </li>';
-  foreach ($onectg as $id => $oneurl) {
-    
-    $tagsArr = explode(',', $oneurl->tags);
+  foreach ($onectg as $id => $onerow) {
+    $tagsArr = explode(',', $onerow->tags);
     $tagz = '';
     foreach ($tagsArr as $onetag) {
       $tagz .= $onetag ?'<a xhref="#ctg_'.$onetag.'">' . $onetag .'</a>' : ''; 
     }
-    $xdomain = parse_url($oneurl->URL);
-    $bazeurl =  $xdomain['host'];
-    $zicon = '';
-    echo $iconsDIR . $bazeurl . '.png';
-    if (file_exists($iconsDIR . $bazeurl . '.png')) {
-      $zicon = '<img class="favicon" src="' . $iconsDIRrel . $bazeurl . '.png">';
+    $hasurl = 0;
+    $classes = $onerow->options;
+    $opts = explode(' ', $onerow->options);
+    if (in_array('newline', $opts)) {
+      $out .= '<br>';
     }
-    $out .= '<li>'
-      . '<h4><a href="' . $oneurl->URL . '" target="_blank">'  . $oneurl->name . '</a> '  . $zicon .'</h4><span class="desc">' . $oneurl->description . '</span> <span class="tagz">'. $tagz.'</span>
-    </li>';
+    if ($onerow->name) {
+      if ($onerow->url) {
+        $xdomain = parse_url($onerow->url);
+        $bazeurl =  $xdomain['host'];
+        $hasurl = 1;
+        $zicon = file_exists($iconsDIR . $bazeurl . '.png') ? '<img class="favicon" src="' . $iconsDIRrel . $bazeurl . '.png">' : '';
+      }
+      $rowTitle = $hasurl ? '<h4><a href="' . $onerow->url . '" target="_blank">'  . $onerow->name . '</a> '  . $zicon . '</h4>'  : '<h4>' . $onerow->name  . '</h4>';
+    }
+    else {
+      $rowTitle = '';
+      $classes .= ' no-name ';
+    }
+              
+    $out .= '<li class="' . $classes . '">' .  $rowTitle.'<span class="desc">' . $onerow->description . '</span> <span class="tagz">'. $tagz. '</span>' . '</li>';
   }
   $out .='</ul>';
   $out .= '</div>';
@@ -64,7 +73,7 @@ $ctgznav =
 $renderedHTML =  $header 
 . '<div class="main-wrapper"><div class="nav-wrapper">' . $ctgznav. '</div>'
 .'<div class="main-content-wrapper">' .$out . '</div></div>
-<p id="lastupdated"> <small>ulima actualizare: '.  strftime("<b>%e %b</b> %H:%M ").'</small></p></div><img id="gphxx" src="app/stationery/covid19_xs_mit.edu-x2.png"/></body></html>';
+<p id="lastupdated"> <small>ulima actualizare: '.  strftime("<b>%e %b</b> %H:%M ").'</small></p></div><img id="gphxx" src="app/stationery/img/covid19_xs_mit.edu-x2.png"/></body></html>';
 
  
   // write to file
