@@ -64,7 +64,7 @@ foreach ($posts as $ctgname => $onectg) {
 // print_r($posts);
 $ctgznav =
   '<ul id="tehnav" class="list-unstyled">
-  <li class="navlead"><span class="navleadwrapper">Resurse <code><mark>#COVID19RO</mark></code> : </span></li>
+  <li class="navlead"><span class="navleadwrapper">Resurse <code><mark>#COVID19RO</mark></code></span></li>
   <li class="telverde"><span class="unicon">&#9888;</span> <small>TelVerde:</small> <a href="tel:0800800358">0800-80-03-58</a></li>
   <li class="navspacer"></li>'
   .$ctgznav

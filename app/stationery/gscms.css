@@ -119,11 +119,19 @@ li:hover .tagz a {
 .navleadwrapper {
   font-family: 'Roboto Slab', serif;
   font-weight: bold;
-  border-bottom: 2px solid rgba(0, 0, 55, .33);
+  box-shadow: 1px 1px 1px rgba(0, 0, 55, .25);
   display: inline-block;
   border-radius: 3px;
   background-color: rgba(0, 0, 0, .1);
   padding: .5ex 1ex;
+}
+
+.navleadwrapper code mark {
+  font-weight: normal;
+  padding: 0 .5ex;
+  background-color: rgba(255, 255, 0, 0.6);
+  color: darkred;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, .05);
 }
 
 @media screen and (min-width: 1280px) {
