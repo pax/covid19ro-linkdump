@@ -12,7 +12,8 @@ $sheets=array(
   'România' => 0,
   'Ghiduri – internațional' => 1584676943,
   'Monitorizare (Global)' => 333501499,
-  'Alte referințe' => 147533401
+  'Site-uri dedicate' => 519156796,
+  'Articole' => 147533401
 );
 
 date_default_timezone_set('Europe/Bucharest');
