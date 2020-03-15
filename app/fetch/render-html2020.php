@@ -71,15 +71,15 @@ $ctgznav =
   . '<li class="navcta"><span class="cta-inner"><span class="unicon">&#9888;</span> Știi vreo resursă care merită adăugată?  <a href="#">trimite-ne aici</a></span></li>
   </ul>';
 $renderedHTML =  $header 
-. '<div class="main-wrapper"><div class="nav-wrapper">' . $ctgznav. '</div>'
-.'<div class="main-content-wrapper">' .$out . '</div></div>
+. '<div id="main-wrapper"><div class="nav-wrapper">' . $ctgznav. '</div>'
+.'<div id="content-wrapper">' .$out . '</div></div>
 <p id="lastupdated"> <small>ulima actualizare: '.  strftime("<b>%e %b</b> %H:%M ").'</small></p></div><img id="gphxx" src="app/stationery/img/covid19_xs_mit.edu-x2.png"/></body></html>';
 
  
   // write to file
 
   // minify html
-  $renderedHTML=sanitize_output($renderedHTML);
+  // $renderedHTML=sanitize_output($renderedHTML);
  
   $ret = file_put_contents($targetfile, $renderedHTML, LOCK_EX);
   if ($ret === false) {

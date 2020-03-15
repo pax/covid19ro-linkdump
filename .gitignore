@@ -2,3 +2,4 @@
 *_test*
 app/data/*
 index.html
+*.code-workspace

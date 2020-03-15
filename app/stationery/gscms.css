@@ -170,13 +170,12 @@ li:hover .tagz a {
     width: 100%;
     margin: 0 auto;
   } */
-  .nav-wrapper, .main-content-wrapper {
+  .nav-wrapper, #content-wrapper {
     padding: 0 2em;
     display: inline-block;
     vertical-align: top;
- 
   }
-  .main-content-wrapper {
+  #content-wrapper {
     width: 800px;
     /* padding-left: 100px; */
   }
@@ -290,7 +289,9 @@ img.favicon {
   color: #888;
 }
 
-/* entry styling */
+/* entry styling 
+- - - - - - - - - - - - - - - - - - - - -  
+*/
 
 li.mark.no-name span.desc, li.mark h4 {
   background-color: rgba(255, 255, 0, 0.3);
@@ -346,4 +347,61 @@ li.mark h4 a {
   content: '; ';
   color: #999;
   font-size: .9em;
+}
+
+/* stats 
+- - - - - - - - - - - - - - - - - - - - -  
+*/
+
+#statswrapper {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 1.5em;
+  box-shadow: 3px 3px 2px rgba(0, 0, 0, .05);
+  padding-bottom: 1ex;
+  border: 1px solid #DDD;
+  background-color: rgba(255, 255, 255, .5);
+}
+
+ul#statsList {
+  font-size: 13px;
+  margin: 0;
+  padding: 1ex 2ex;
+}
+
+ul#statsList.list-unstyled li {
+  margin: 0;
+}
+
+ul#statsList.list-unstyled li span {
+  display: inline-block;
+  padding: .25ex .5ex;
+  text-align: right;
+  width: 1.3em;
+}
+
+ul#statsList span.code {
+  text-align: center;
+  font-family: monospace;
+}
+
+
+#stats-total {
+  padding: 1ex 2ex;
+  border-bottom: 2px solid #DDD;
+  /* margin-bottom: 1ex; */
+  background-color: rgba(0, 0, 0, .05);
+  text-shadow: 1px 1px 0 white;
+}
+
+.stats-footer {
+  border-top: 1px solid #DDD;
+  font-size: 12px;
+  /* padding:  .5ex; */
+  padding-top: 1ex;
+  text-align: center;
+}
+
+.stats-footer a {
+  border: none;
 }
