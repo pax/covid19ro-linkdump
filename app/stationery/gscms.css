@@ -48,7 +48,7 @@ ul.list-unstyled {
 }
 
 ul.list-unstyled li {
-  margin: 1.25ex 0;
+  margin: 1.33ex 0;
 }
 
 a {
@@ -165,15 +165,16 @@ li:hover .tagz a {
   ul#tehnav li {
     margin: .75em 0 0 0;
   }
-  .xcontainer {
+  /* .xcontainer {
     width: 1280px;
     width: 100%;
     margin: 0 auto;
-  }
+  } */
   .nav-wrapper, .main-content-wrapper {
     padding: 0 2em;
     display: inline-block;
     vertical-align: top;
+ 
   }
   .main-content-wrapper {
     width: 800px;
@@ -181,7 +182,7 @@ li:hover .tagz a {
   }
   .nav-wrapper {
     /* width: 420px; */
-    width: 280px;
+    width: 200px;
   }
   .cta-inner {
     border-left: 3px solid rgb(187, 102, 53);
