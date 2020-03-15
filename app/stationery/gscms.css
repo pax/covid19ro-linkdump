@@ -141,7 +141,7 @@ li:hover .tagz a {
     margin: 1em;
     padding: 1em 1.5em;
   }
-  .telverde {
+  /* .telverde {
     position: fixed;
     top: .15em;
     right: .75em;
@@ -152,7 +152,7 @@ li:hover .tagz a {
     border-radius: 3px;
     box-shadow: .3ex .5ex 0 rgba(0, 0, 0, .1);
     color: #777;
-  }
+  } */
   li.navspacer {
     display: none;
   }
@@ -357,9 +357,7 @@ li.mark h4 a {
   display: inline-block;
   vertical-align: top;
   margin-top: 1.5em;
-  box-shadow: 3px 3px 2px rgba(0, 0, 0, .05);
   padding-bottom: 1ex;
-  border: 1px solid #DDD;
   background-color: rgba(255, 255, 255, .5);
 }
 
@@ -367,6 +365,7 @@ ul#statsList {
   font-size: 13px;
   margin: 0;
   padding: 1ex 2ex;
+  display: none;
 }
 
 ul#statsList.list-unstyled li {
@@ -385,23 +384,48 @@ ul#statsList span.code {
   font-family: monospace;
 }
 
-
 #stats-total {
   padding: 1ex 2ex;
-  border-bottom: 2px solid #DDD;
-  /* margin-bottom: 1ex; */
-  background-color: rgba(0, 0, 0, .05);
+  border: 1px solid rgba(255, 0, 0, 0.4);
+  border-radius: 3px;
   text-shadow: 1px 1px 0 white;
 }
 
 .stats-footer {
   border-top: 1px solid #DDD;
   font-size: 12px;
-  /* padding:  .5ex; */
+  padding:  .5ex;
   padding-top: 1ex;
   text-align: center;
+  display: none;
 }
 
-.stats-footer a {
+#togglejudete a, .stats-footer a {
   border: none;
+}
+
+#togglejudete {
+  text-align: center;
+  padding: .75ex 0 0 0;
+}
+
+#togglejudete a {
+  font-size: 13px;
+}
+
+#statswrapper.showdetails ul#statsList, #statswrapper.showdetails .stats-footer {
+  display: block;
+}
+
+#statswrapper.showdetails #stats-total {
+  margin-bottom: 1ex;
+  background-color: rgba(0, 0, 0, .05);
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #DDD;
+}
+
+#statswrapper.showdetails {
+  box-shadow: 3px 3px 2px rgba(0, 0, 0, .05);
+  border: 1px solid #DDD;
 }

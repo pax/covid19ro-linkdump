@@ -65,7 +65,7 @@ foreach ($posts as $ctgname => $onectg) {
 $ctgznav =
   '<ul id="tehnav" class="list-unstyled">
   <li class="navlead"><span class="navleadwrapper">Resurse <code><mark>#COVID19RO</mark></code></span></li>
-  <li class="telverde"><span class="unicon">&#9888;</span> <small>TelVerde:</small> <a href="tel:0800800358">0800-80-03-58</a></li>
+  <li class="telverde"><span class="unicon">&#128241;</span>  <a href="tel:0800800358">0800-80-03-58</a></li>
   <li class="navspacer"></li>'
   .$ctgznav
   . '<li class="navcta"><span class="cta-inner"><span class="unicon">&#9888;</span> Știi vreo resursă care merită adăugată?  <a href="#">trimite-ne aici</a></span></li>

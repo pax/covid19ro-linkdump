@@ -7,20 +7,28 @@ function fetchJson(url){
     // response = $.parseJSON(json);
     // console.log(json); // this will show the info it in firebug console
     let statsDiv = $('<div id="statswrapper"></div>');
+    let togglejud = $('<div id="togglejudete"><a href="#">&#x27e9;	lista pe județe</a></div>');
     let statsList = $('<ul id="statsList" class="list-unstyled"><li><b>C</b>azuri <br><b>Î</b>nsănătoșiri <br><b>D</b>ecese</li> <li><span class="code">jud</span><span class="total">C</span><span class="healed">Î</span><span class="dead">D</span></li></ul>');
     $("#main-wrapper").append(statsDiv);
-    statsDiv.html('<div id="stats-total">Cazuri: <mark><b>' + json.data.total + '</b></mark></div>')
+    statsDiv.html('<div id="stats-total"><b>' + json.data.total + '</b> cazuri</div>')
     let jsondata = json.data.data;
     for (var i = 0, len = jsondata.length; i < len; i++) {
       let jsdata = jsondata[i];
-      let tr = $('<li></li>')
-      tr.append(row_CasesByCounty(jsdata));
-      statsList.append(tr);
+      let xlist = $('<li></li>')
+      xlist.append(row_CasesByCounty(jsdata));
+      statsList.append(xlist);
     }
-      statsDiv.append(statsList);
-    statsDiv.append('<div class="stats-footer"> API: <a href="https://covid19.geo-spatial.org/dashboard/main">geospatial.org</a></div>')
+    
+    statsDiv.append(statsList);
+    
+    statsDiv.append('<div class="stats-footer"> vezi <a href="https://covid19.geo-spatial.org/dashboard/main" target="_blank"><u>hartă</u></a></div>')
+    statsDiv.append(togglejud);
+    $('#togglejudete a').click(function () {
+      $('#statswrapper').toggleClass('showdetails');
+    });
   });
 }
+
 
 function row_CasesByCounty(jsdata){
   return (
