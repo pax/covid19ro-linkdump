@@ -8,13 +8,14 @@ require('functions.php');
 $zeFile='../data/google-sheets.json';
 // $docID = '2PACX-1vSjwrfiPQ6ckjttGUw-_NbxVF9TsvTMx8VLXPWSV22jChYEs6itSAQLQs8E-XB22RRbYvNGS9VyCD2L';
 $docID = '2PACX-1vTERxGzP9c65waSCL3Wskg2JDFi4GkIfC62uPIKo9Drxy5L46K1JvPFudehEEFd_gzIuIam74PDbwAs';
+
 $sheets=array(
-  'România' => 0,
-  'Ghiduri – internațional' => 1584676943,
+  'Info surse oficiale' => 1584676943,
+  'Solidaritate' => 1584676943,
   'Monitorizare (Global)' => 333501499,
-  'Site-uri dedicate' => 519156796,
-  'Articole' => 147533401,
-  'Quality time, casnice' => 1148678370
+  // 'Site-uri dedicate' => 519156796,
+  'Utile' => 333501499,
+  'Edutainment' => 1148678370
 );
 
 date_default_timezone_set('Europe/Bucharest');
