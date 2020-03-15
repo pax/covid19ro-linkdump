@@ -4,22 +4,14 @@
 */
 
 require('functions.php');
+require('../settings.php');
 
-$zeFile='../data/google-sheets.json';
-// $docID = '2PACX-1vSjwrfiPQ6ckjttGUw-_NbxVF9TsvTMx8VLXPWSV22jChYEs6itSAQLQs8E-XB22RRbYvNGS9VyCD2L';
-$docID = '2PACX-1vTERxGzP9c65waSCL3Wskg2JDFi4GkIfC62uPIKo9Drxy5L46K1JvPFudehEEFd_gzIuIam74PDbwAs';
-
-$sheets=array(
-  'Info surse oficiale' => 1584676943,
-  'Solidaritate' => 0,
-  'Utile' => 333501499,
-  'Edutainment' => 1148678370
-);
+$zeFile = $GLOBALS['zeFile'];
+$docID = $GLOBALS['docID'];
+$sheets = $GLOBALS['sheets'];
 
 date_default_timezone_set('Europe/Bucharest');
 setlocale(LC_ALL, "ro_RO.UTF-8");
-
-// require_once('../init.php');
 
 $spreadsheet_data=$out=null;
 $msg='';

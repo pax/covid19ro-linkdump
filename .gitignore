@@ -1,5 +1,7 @@
 *_obsolete*
 *_test*
-app/data/*
+*/app/data/*
 index.html
 *.code-workspace
+*/settings.php
+app/data

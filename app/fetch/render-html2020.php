@@ -1,4 +1,4 @@
-<?php
+<pre><?php
 // $url = "http" . (!empty($_SERVER['HTTPS']) ? "s" : "") .   "://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
 // echo '<meta property="og:image" content="'. $url.'app/stationery/img/covid19_xs_mit.edu-x2.png">';
@@ -14,13 +14,15 @@ if (!isset($_GET["action"]) && ($_GET["action"] != "write"))  {
 
 setlocale(LC_TIME, "ro_RO");
 date_default_timezone_set('Europe/Bucharest');
+require('../settings.php');
 require('functions-app.php');
 require('functions-generic.php');
 
-$sourceJson = '../data/google-sheets.json';
-$targetfile= '../../index.html';
-$iconsDIR = '../data/icons/';
-$iconsDIRrel = 'app/data/icons/';
+$sourceJson = $GLOBALS['sourceJson'];
+$targetfile= $GLOBALS['targetfile'];
+$iconsDIR = $GLOBALS['iconsDIR'];
+$iconsDIRrel = $GLOBALS['iconsDIRrel'];
+
 $out = $ctgznav = '';
 $header = file_get_contents('header.html');
 $posts = json_decode(file_get_contents($sourceJson, true));
@@ -34,7 +36,7 @@ foreach ($posts as $ctgname => $onectg) {
     foreach ($tagsArr as $onetag) {
       $tagz .= $onetag ?'<a xhref="#ctg_'.$onetag.'">' . $onetag .'</a>' : ''; 
     }
-    $hasurl = 0;
+    
     $classes = $onerow->options;
     $opts = explode(' ', $onerow->options);
     if (in_array('newline', $opts)) {
@@ -43,11 +45,11 @@ foreach ($posts as $ctgname => $onectg) {
     if ($onerow->name) {
       if ($onerow->url) {
         $xdomain = parse_url($onerow->url);
-        $bazeurl =  $xdomain['host'];
-        $hasurl = 1;
-        $zicon = file_exists($iconsDIR . $bazeurl . '.png') ? '<img class="favicon" src="' . $iconsDIRrel . $bazeurl . '.png">' : '';
+        $bazeurl = isset($xdomain['host']) ? $xdomain['host'] : FALSE;
+        $zicon = $bazeurl && file_exists($iconsDIR . $xdomain['host']. '.png') ? '<img class="favicon" src="' . $iconsDIRrel . $bazeurl . '.png">' : '';
       }
-      $rowTitle = $hasurl ? '<h4><a href="' . $onerow->url . '" target="_blank">'  . $onerow->name . '</a> '  . $zicon . '</h4>'  : '<h4>' . $onerow->name  . '</h4>';
+
+      $rowTitle = $bazeurl ? '<h4><a href="' . $onerow->url . '" target="_blank">'  . $onerow->name . '</a> '  . $zicon . '</h4>'  : '<h4>' . $onerow->name  . '</h4>';
     }
     else {
       $rowTitle = '';
