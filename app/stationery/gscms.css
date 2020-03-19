@@ -74,7 +74,10 @@ a {
 }
 
 .desc {
-  color: #766;
+  color: #655;
+  font-size: 15px;
+  display: inline-block;
+  line-height: 1.3;
 }
 
 li:hover .desc {
@@ -190,7 +193,7 @@ li:hover .tagz a {
     color: #999;
     font-size: 12px;
   }
-   #tehnav li.subtitle {
+  #tehnav li.subtitle {
     margin: .066em 0 0 1ex;
   }
   #tehnav li.subtitle a {
@@ -333,6 +336,7 @@ li.mark.no-name span.desc, li.mark h4 {
 
 li.mark span.desc {
   color: Black;
+  font-size: 17px;
 }
 
 li.mark h4 {
