@@ -12,7 +12,7 @@ if (!isset($_GET["action"]) && ($_GET["action"] != "write"))  {
 echo 'fetching favicons ...';
 setlocale(LC_TIME, "ro_RO");
 date_default_timezone_set('Europe/Bucharest');
-require('functions-app.php');
+require('functions-app.php'); 
 require('functions-generic.php');
 require('../settings.php');
 
@@ -26,6 +26,8 @@ $icnt = 0;
 foreach ($posts as $ctgname => $onectg) {
   foreach ($onectg as $id => $oneurl) {
     if ($oneurl->url && trim($oneurl->url) != '') {
+
+      
       $xdomain = parse_url($oneurl->url);
       $bazeurl = isset($xdomain['host']) ? $xdomain['host'] : false ;
       if (filter_var($bazeurl, FILTER_VALIDATE_URL) === FALSE) {
@@ -37,6 +39,7 @@ foreach ($posts as $ctgname => $onectg) {
         copy($iconurl, $targetDIR . $bazeurl . '.png');
         echo ' &rang; <img src="' . $targetDIR . $bazeurl . '.png"> ';
       }
+
     }
   }
 }

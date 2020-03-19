@@ -63,7 +63,7 @@ foreach ($posts as $ctgname => $onectg) {
  
       }
 
-      $rowTitle = $bazeurl ? '<h4><a href="' . $onerow->url . '" target="_blank">'  . $onerow->name . '</a> '  . $zicon . '</h4>'  : '<h4>' . $onerow->name  . '</h4>';
+      $rowTitle = $bazeurl ? $zicon . '<h4><a href="' . $onerow->url . '" target="_blank">'  . $onerow->name . '</a> </h4>'  : '<h4>' . $onerow->name  . '</h4>';
     }
     else {
       $rowTitle = '';
