@@ -36,6 +36,22 @@ h2, h4 {
   margin: 0 .15em .5ex 0;
 }
 
+.xbox li.subtitle {
+  background-color: #FEFEE0;
+  display: block;
+  margin: 2em 30% 1em -1em;
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ccccee' fill-opacity='0.5' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.xbox li.subtitle h4 {
+  font-size: 19px;
+  color: #644;
+  margin-top: 1em;
+  background-color: White;
+  margin: 0 1em;
+  padding: 0 1em 0 1.5ex;
+}
+
 hr {
   border: none;
   border-bottom: 1px solid #DDD;
@@ -160,10 +176,26 @@ li:hover .tagz a {
     position: fixed;
   }
   ul#tehnav a {
-    background-color: aliceblue;
+    background-color: White;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #556;
   }
   ul#tehnav li {
-    margin: .75em 0 0 0;
+    margin: .5em 0 0 0;
+  }
+  ul#tehnav li .counter {
+    font-weight: normal;
+    color: #999;
+    font-size: 12px;
+  }
+   #tehnav li.subtitle {
+    margin: .066em 0 0 1ex;
+  }
+  #tehnav li.subtitle a {
+    font-size: 15px;
+    font-weight: normal;
   }
   /* .xcontainer {
     width: 1280px;
@@ -394,7 +426,7 @@ ul#statsList span.code {
 .stats-footer {
   border-top: 1px solid #DDD;
   font-size: 12px;
-  padding:  .5ex;
+  padding: .5ex;
   padding-top: 1ex;
   text-align: center;
   display: none;

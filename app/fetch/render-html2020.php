@@ -27,14 +27,19 @@ $out = $ctgznav = '';
 $header = file_get_contents('header.html');
 $posts = json_decode(file_get_contents($sourceJson, true));
 
+$i = 0;
 foreach ($posts as $ctgname => $onectg) {
+  $i++;
   $out .= '<div class="xctg xbox"><h2 id="ctx_' . sluggify($ctgname) . '">' . $ctgname . '</h2><ul class="list-unstyled">';
-  $ctgznav .= '<li><a href="#ctx_' . sluggify($ctgname) . '">' . $ctgname . '</a> </li>';
+  $ctgznav .= '<li class="ctg"><small class="counter"> ' . $i . '</small> <a href="#ctx_' . sluggify($ctgname) . '"> ' . $ctgname . '</a> </li>';
+  $j = 0;
+  $k = 0;
   foreach ($onectg as $id => $onerow) {
+    $j++;
     $tagsArr = explode(',', $onerow->tags);
     $tagz = '';
     foreach ($tagsArr as $onetag) {
-      $tagz .= $onetag ?'<a xhref="#ctg_'.$onetag.'">' . $onetag .'</a>' : ''; 
+      $tagz .= $onetag ? '<a xhref="#ctg_'.$onetag.'">' . $onetag .'</a>' : ''; 
     }
     
     $classes = $onerow->options;
@@ -42,11 +47,20 @@ foreach ($posts as $ctgname => $onectg) {
     if (in_array('newline', $opts)) {
       $out .= '<br>';
     }
+    if (in_array('subtitle', $opts) && $onerow->name) {
+      $k++;
+      $ctgznav .= '<li class="subtitle"><small class="counter"> ' . $i . '.' . $k . '.</small> <a href="#x' . $i.$k . '"> ' . $onerow->name . '</a> </li>';
+    }
+ 
+    $bazeurl = FALSE;
     if ($onerow->name) {
       if ($onerow->url) {
         $xdomain = parse_url($onerow->url);
-        $bazeurl = isset($xdomain['host']) ? $xdomain['host'] : FALSE;
-        $zicon = $bazeurl && file_exists($iconsDIR . $xdomain['host']. '.png') ? '<img class="favicon" src="' . $iconsDIRrel . $bazeurl . '.png">' : '';
+        if ($xdomain) {
+          $bazeurl = isset($xdomain['host']) ? $xdomain['host'] : FALSE;
+          $zicon = $bazeurl && file_exists($iconsDIR . $xdomain['host']. '.png') ? '<img class="favicon" src="' . $iconsDIRrel . $bazeurl . '.png">' : '';
+        }
+ 
       }
 
       $rowTitle = $bazeurl ? '<h4><a href="' . $onerow->url . '" target="_blank">'  . $onerow->name . '</a> '  . $zicon . '</h4>'  : '<h4>' . $onerow->name  . '</h4>';
@@ -56,7 +70,7 @@ foreach ($posts as $ctgname => $onectg) {
       $classes .= ' no-name ';
     }
               
-    $out .= '<li class="' . $classes . '">' .  $rowTitle.'<span class="desc">' . $onerow->description . '</span> <span class="tagz">'. $tagz. '</span>' . '</li>';
+    $out .= '<li class="' . $classes . '"  id="x' . $i . $j . '">' .  $rowTitle.'<span class="desc">' . $onerow->description . '</span> <span class="tagz">'. $tagz. '</span>' . '</li>';
   }
   $out .='</ul>';
   $out .= '</div>';
