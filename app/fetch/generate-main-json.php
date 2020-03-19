@@ -28,18 +28,16 @@ if($ERR) {
   exit;
 }
 
-
 $urlListJson=file_get_contents($urlList);
  
-
 
 $jsonObj=json_decode( $urlListJson);
 print_r($jsonObj);
 $masterArr=[];
 foreach ($jsonObj->posts as $oneUrl) {
 
-  $opts=$oneUrl->Options;
-
+  $opts=$oneUrl->options;
+  print_r($oneUrl);
   $xopts=explode(',', $opts);
   $optsTrimmed = [];
     foreach ($xopts as $value) {
@@ -47,29 +45,30 @@ foreach ($jsonObj->posts as $oneUrl) {
     }
     // print_r($optsTrimmed);
   // if (in_array('published', $optsTrimmed)){
-    if (file_exists($sourcesFolder.urlencode($oneUrl->URL).'.json')) {
-      // echo urlencode($oneUrl->URL).'.json<br>';
-      $embedInfoJson=file_get_contents($sourcesFolder.urlencode($oneUrl->URL).'.json');
+    if (file_exists($sourcesFolder.urlencode($oneUrl->url).'.json')) {
+      // echo urlencode($oneUrl->url).'.json<br>';
+      $embedInfoJson=file_get_contents($sourcesFolder.urlencode($oneUrl->url).'.json');
       $tmpObj=json_decode($embedInfoJson);
-      $tmpObj->url=$oneUrl->URL;
-      $tmpObj->url = isset($oneUrl->URL) && $oneUrl->URL != null ? $oneUrl->URL : null;
-      $tmpObj->comment = isset($oneUrl->Comentariu) && $oneUrl->Comentariu != null ? $oneUrl->Comentariu : null;
-      $tmpObj->collections = isset($oneUrl->Collections) && $oneUrl->Collections != null ? $oneUrl->Collections : null;
-      $tmpObj->options = isset($oneUrl->Options) && $oneUrl->Options != null ? $oneUrl->Options : null;
+      $tmpObj->url=$oneUrl->url;
+      $tmpObj->url = isset($oneUrl->url) && $oneUrl->url != null ? $oneUrl->url : null;
+      $tmpObj->comment = isset($oneUrl->description) && $oneUrl->description != null ? $oneUrl->description : null;
+      $tmpObj->name = isset($oneUrl->name) && $oneUrl->name != null ? $oneUrl->name : null;
+      // $tmpObj->collections = isset($oneUrl->Collections) && $oneUrl->Collections != null ? $oneUrl->Collections : null;
+      $tmpObj->options = isset($oneUrl->options) && $oneUrl->options != null ? $oneUrl->options : null;
       // overwrite timestamp w date from embed info, if any
-      $tmpObj->timestamp = date("YmdHi", strtotime($tmpObj->date));
+      // $tmpObj->timestamp = date("YmdHi", strtotime($tmpObj->date));
       //   (isset($tmpObj->date) && ($tmpObj->date != null ) && (is_string($tmpObj->date)))
       //   // (isset($tmpObj->date) && ($tmpObj->date != null ))) //TODO see shy this causes problems
       //   ? date("YmdHi",strtotime($tmpObj->date))
       //   : date("YmdHi",strtotime($oneUrl->Timestamp));
-      unset($tmpObj->date); // delete 'date' element
+    //  unset($tmpObj->date); // delete 'date' element
       // print_r($tmpObj);
       $masterArr[]=$tmpObj;
     }
 
     else {
-      // echo 'cantfind:<mark>'.urlencode($oneUrl->URL).'.json</mark><br>';
-      file_put_contents('../data/_error-log.txt', date("Y-m-d H:i",time())."\t".'CANT FIND: '.urlencode($oneUrl->URL).'.json'.PHP_EOL , FILE_APPEND | LOCK_EX);
+      // echo 'cantfind:<mark>'.urlencode($oneUrl->url).'.json</mark><br>';
+      file_put_contents('../data/_error-log.txt', date("Y-m-d H:i",time())."\t".'CANT FIND: '.urlencode($oneUrl->url).'.json'.PHP_EOL , FILE_APPEND | LOCK_EX);
     }
   // }
 }
