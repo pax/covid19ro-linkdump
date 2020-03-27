@@ -12,8 +12,8 @@ if (!isset($_GET["action"]) && ($_GET["action"] != "write"))  {
 echo 'fetching favicons ...';
 setlocale(LC_TIME, "ro_RO");
 date_default_timezone_set('Europe/Bucharest');
-require('functions-app.php'); 
-require('functions-generic.php');
+require('functions/functions-app.php'); 
+require('functions/functions-generic.php');
 require('../settings.php');
 
 $sourceJson = $GLOBALS['sourceJson'] ;
@@ -27,7 +27,6 @@ foreach ($posts as $ctgname => $onectg) {
   foreach ($onectg as $id => $oneurl) {
     if ($oneurl->url && trim($oneurl->url) != '') {
 
-      
       $xdomain = parse_url($oneurl->url);
       $bazeurl = isset($xdomain['host']) ? $xdomain['host'] : false ;
       if (filter_var($bazeurl, FILTER_VALIDATE_URL) === FALSE) {
@@ -38,6 +37,7 @@ foreach ($posts as $ctgname => $onectg) {
         $iconurl = 'https://s2.googleusercontent.com/s2/favicons?domain_url=' . $oneurl->url;
         copy($iconurl, $targetDIR . $bazeurl . '.png');
         echo ' &rang; <img src="' . $targetDIR . $bazeurl . '.png"> ';
+        // TODO: fetch embed info
       }
 
     }

@@ -3,7 +3,7 @@
   Fetches data from Google Sheets
 */
 
-require('functions.php');
+require('functions/functions.php');
 require('../settings.php');
 
 $zeFile = $GLOBALS['zeFile'];

@@ -15,8 +15,8 @@ if (!isset($_GET["action"]) && ($_GET["action"] != "write"))  {
 setlocale(LC_TIME, "ro_RO");
 date_default_timezone_set('Europe/Bucharest');
 require('../settings.php');
-require('functions-app.php');
-require('functions-generic.php');
+require('functions/functions-app.php');
+require('functions/functions-generic.php');
 
 $sourceJson = $GLOBALS['sourceJson'];
 $targetfile= $GLOBALS['targetfile'];
