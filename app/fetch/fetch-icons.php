@@ -26,24 +26,35 @@ $icnt = 0;
 foreach ($posts as $ctgname => $onectg) {
   foreach ($onectg as $id => $oneurl) {
     if ($oneurl->url && trim($oneurl->url) != '') {
-
+      // echo '<br>&#11088; '; 
       $xdomain = parse_url($oneurl->url);
       $bazeurl = isset($xdomain['host']) ? $xdomain['host'] : false ;
-      if (filter_var($bazeurl, FILTER_VALIDATE_URL) === FALSE) {
-        $bazeurl = false;
+      // echo $bazeurl . ' // ';
+
+      // check if proper url
+      if (filter_var('http://'.$bazeurl, FILTER_VALIDATE_URL) === FALSE) {
+        // $bazeurl = false;
+        echo '&#9888; improper url format: <mark>' . $bazeurl .'</mark>';
+        continue;
       }
-      if ($bazeurl && !file_exists($targetDIR . $bazeurl . '.png')) {
+      
+      
+      if (!file_exists($targetDIR . $bazeurl . '.png')) {
+        // echo ' - ' . $bazeurl;
         $icnt++;
         $iconurl = 'https://s2.googleusercontent.com/s2/favicons?domain_url=' . $oneurl->url;
         copy($iconurl, $targetDIR . $bazeurl . '.png');
-        echo ' &rang; <img src="' . $targetDIR . $bazeurl . '.png"> ';
+        echo ' <img src="' . $targetDIR . $bazeurl . '.png">' . $bazeurl . ' ';
         // TODO: fetch embed info
       }
-
+      else {
+        echo '&middot;';
+        // echo ' &#10004; <img src="' . $targetDIR . $bazeurl . '.png"> ';
+      }
     }
   }
 }
-
-echo ':' . $icnt . ' icons ';
+echo '<br> &#9654; ';
+echo $icnt ? ' <b>' . $icnt . '</b> icons ' : ' no new icons';
 
 

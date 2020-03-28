@@ -2,115 +2,24 @@
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 
+
+
+$zurl = 'https://www.malaymail.com/news/life/2020/03/25/covid-19-tesco-malaysia-rescues-clueless-husbands-with-illustrated-guide-to/1850117';
+
 // echo __DIR__.''; 
 // exit;
 include '../vendor/embed/embed/src/autoloader.php';
-// include '../vendor/embed/src/autoloader.php';
-// include '../../app/vendor/Embed-master/src/autoloader.php';
+
 // Use default config as template
-$options = \Embed\Embed::$default_config;
+$fetch_meta_opts = \Embed\Embed::$default_config;
 // Do some config modifications
-$options['min_image_width'] = 60;
-$options['min_image_height'] = 60;
-$options['html']['max_images'] = 10;
-$options['html']['external_images'] = false;
+$fetch_meta_opts['min_image_width'] = 60;
+$fetch_meta_opts['min_image_height'] = 60;
+$fetch_meta_opts['html']['max_images'] = 10;
+$fetch_meta_opts['html']['external_images'] = false;
 
-/* 
-// use env variables - DEPRECATED?
-if (is_file(__DIR__.'/../env.php')) {
-    include __DIR__.'/../env.php';
+ include 'functions/functions-embed.php';
 
-    $options['google']['key'] = getenv('GOOGLE_KEY');
-    $options['facebook']['key'] = getenv('FACEBOOK_KEY');
-}
- */
-
-function getUrl()
-{
-    if (!isset($_GET['url'])) {
-        return '';
-    }
-
-    $url = $_GET['url'];
-
-    //fix for unescaped urls
-    foreach ($_GET as $name => $value) {
-        if ($name === 'url') {
-            continue;
-        }
-
-        $url .= "&{$name}={$value}";
-    }
-
-    return $url;
-}
-
-function getEscapedUrl()
-{
-    return htmlspecialchars(getUrl(), ENT_QUOTES, 'UTF-8');
-}
-
-function printAny($text)
-{
-    if (is_array($text)) {
-        printArray($text);
-    } else {
-        printText($text);
-    }
-}
-
-function printText($text)
-{
-    echo htmlspecialchars($text, ENT_IGNORE);
-}
-
-function printImage($image)
-{
-    if ($image) {
-        echo <<<EOT
-        <img src="{$image}"><br>
-EOT;
-        printUrl($image);
-    }
-}
-
-function printUrl($url)
-{
-    if ($url) {
-        echo <<<EOT
-        <a href="{$url}" target="_blank">Open (new window)</a> | {$url}
-EOT;
-    }
-}
-
-function printArray($array)
-{
-    if ($array) {
-        echo '<pre>' . htmlspecialchars(print_r($array, true), ENT_IGNORE) . '</pre>';
-    }
-}
-
-function printHeaders($array)
-{
-    $headers = [];
-
-    foreach ($array as $name => $values) {
-        $headers[$name] = implode(', ', $values);
-    }
-
-    printArray($headers);
-}
-
-function printCode($code, $asHtml = true)
-{
-    if ($asHtml) {
-        echo $code;
-    }
-
-    if ($code) {
-        echo '<pre>' . htmlspecialchars($code, ENT_IGNORE) . '</pre>';
-    }
-}
 
 $providerData = [
     'title' => 'printText',
@@ -159,9 +68,7 @@ $adapterData = [
 ?>
 
 <!DOCTYPE html>
-
 <html>
-
 <head>
     <meta charset="utf-8">
 
@@ -286,7 +193,7 @@ $adapterData = [
         }
     </style>
 </head>
-<?php $zurl = 'https://stackoverflow.com/questions/51789617/php-get-url-of-current-file-directory'; ?>
+
 <?php if ($zurl) : ?>
     <section>
         <h1>Result:</h1>
@@ -295,7 +202,7 @@ $adapterData = [
         echo $zurl;
         try {
             $dispatcher = new Embed\Http\CurlDispatcher();
-            $info = Embed\Embed::create($zurl, $options, $dispatcher);
+            $info = Embed\Embed::create($zurl, $fetch_meta_opts, $dispatcher);
         } catch (Exception $exception) {
             echo '<table>';
             foreach ($dispatcher->getAllResponses() as $response) {
