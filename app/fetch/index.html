@@ -13,22 +13,22 @@
   margin: 1ex 5%;
 }
 button {
-  background-color: AntiqueWhite;
-  font-size: 1em;
+  background-color: rgba(212, 212, 212, 0.2);
+  font-size: 18px;
   color: #555;
   padding: .75ex 1.2ex;
-  border-radius: 0;
-  border: 1px solid #DDD;
-  /*box-shadow: 1px 1px 5px #CCC;*/
+  border-radius: 1em;
+  border: 2px solid white;
+  box-shadow: 1px 1px 1ex rgba(0,0,0,.06); 
   margin: .5ex .5ex 0 0;
+  text-shadow: 1px 1px 1px white,   2px 1px 0 rgba(255,255,255,.5); 
 }
  
 button:hover {
-  background-color: Beige;
-  /*box-shadow: 1px 1px 3px #999;*/
-  /*color: LightYellow;*/
-  /*border-color: LightYellow;*/
+  background-color: rgba(212, 212, 212, 0.66);
+  color: black;
   cursor: pointer;
+ 
 }
 #progress {
   /*font-size: 1em;*/
@@ -89,10 +89,10 @@ a {
         <a href="../../">&larr;<span style="color: red;">&hearts;</span></a>
       </p>
       <button id="fetch_google_sheets"><small><b>1</b> Get </small>gSheets URL list &rarr; JSON</button>
-      <button id="fetch_embed_info"><small>Fetch </small>embed info</button>
+      <button id="fetch_embed_info"><b>2</b> <small>Fetch </small>embed info</button>
       <button id="generate_json"><small>Generate </small>JSON</button>
-      <button id="fetch_icons"> <small><b>2</b> Fetch </small>favicons</button>
-      <button id="generate_html"> <small><b>3</b> Generate </small>HTML</button>
+      <button id="fetch_icons"> <small><b>4</b> Fetch </small>favicons</button>
+      <button id="generate_html"> <small><b>5</b> Generate </small>HTML</button>
       <!-- <p class="helpers">
         <a href="render-info.php">Show fetched info</a> 
         <a href="cache-manager.php">Manage cache</a>

@@ -20,7 +20,7 @@ $sourceJson = $GLOBALS['sourceJson'] ;
 $targetDIR = $GLOBALS['iconsDIR'] ;
 
 $out = $ctgznav = '';
-$header = file_get_contents('header.html');
+ 
 $posts = json_decode(file_get_contents($sourceJson, true));
 $icnt = 0;
 foreach ($posts as $ctgname => $onectg) {

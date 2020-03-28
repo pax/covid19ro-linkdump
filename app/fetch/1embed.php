@@ -2,9 +2,7 @@
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 
-
-
-$zurl = 'https://www.malaymail.com/news/life/2020/03/25/covid-19-tesco-malaysia-rescues-clueless-husbands-with-illustrated-guide-to/1850117';
+$zurl = 'https://www.facebook.com/paulexandru/posts/3113590458659501';
 
 // echo __DIR__.''; 
 // exit;
@@ -18,7 +16,7 @@ $fetch_meta_opts['min_image_height'] = 60;
 $fetch_meta_opts['html']['max_images'] = 10;
 $fetch_meta_opts['html']['external_images'] = false;
 
- include 'functions/functions-embed.php';
+include 'functions/functions-embed.php';
 
 
 $providerData = [
@@ -221,9 +219,9 @@ $adapterData = [
             throw $exception;
         }
         ?>
-        <h2>
-            T1
-        </h2>
+<pre>
+ 
+</pre>
         <table id="t1">
             <?php foreach ($adapterData as $name => $fn) : ?>
                 <tr>
@@ -232,67 +230,7 @@ $adapterData = [
                 </tr>
             <?php endforeach ?>
         </table>
-        <h2>
-          
-        </h2>
-        <div class="view-advanced-data">
-            <button onclick="document.getElementById('advanced-data').style.display = 'block'; this.style.display = 'none';">View all collected data</button>
-        </div>
  
-        <div id="advanced-data">
-            <?php foreach ($info->getProviders() as $providerName => $provider) : ?>
-                <h2><?php echo $providerName; ?> <small>provider</small></h2>
-
-                <?php if (empty($provider->getBag()->getAll())) : ?>
-                    <p>No data collected</p>
-                    <?php continue; ?>
-                <?php endif ?>
-
-                <table>
-                    <?php foreach ($providerData as $name => $fn) : ?>
-                        <?php if (!empty($provider->{'get' . $name}())) : ?>
-                            <tr>
-                                <th><?php echo $providerName . '.' . $name; ?></th>
-                                <td><?php $fn($provider->{'get' . $name}(), false); ?></td>
-                            </tr>
-                        <?php endif ?>
-                    <?php endforeach ?>
-
-                    <tr>
-                        <th>&rarr; All data collected</th>
-                        <td><?php printArray($provider->getBag()->getAll()); ?></td>
-                    </tr>
-                </table>
-            <?php endforeach ?>
-
-            <h2>Http requests</h2>
-
-            <table>
-                <?php foreach ($info->getDispatcher()->getAllResponses() as $response) : ?>
-                    <tr>
-                        <th>
-                            <?php if ((string) $response->getStartingUrl() !== (string) $response->getUrl()) : ?>
-                                <?= $response->getStartingUrl() ?> <code>=&gt;</code>
-                            <?php endif ?>
-
-                            <?= $response->getUrl() ?>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <?php printHeaders($response->getHeaders()); ?>
-                            <?php printArray($response->getInfo()); ?>
-                        </td>
-                    </tr>
-                <?php endforeach ?>
-            </table>
-
-            <h2>Content</h2>
-
-            <pre>
-                    <?php printText($info->getResponse()->getContent()); ?>
-                </pre>
-        </div>
     </section>
 
 <?php endif; ?>
