@@ -1,3 +1,5 @@
+
+
 let baseuri = 'https://covid19.geo-spatial.org/api/dashboard/';
 // let baseuri = 'app/data/covid19geospatial/';
 let endpoints = ['getCasesByCounty', 'getDeadCasesByCounty', 'getHealthCasesByCounty', 'getDailyCaseReport', 'getCaseRelations'];
@@ -12,15 +14,15 @@ function fetchJson(url){
     $("#main-wrapper").append(statsDiv);
     statsDiv.html('<div id="stats-total"><b>' + json.data.total + '</b> cazuri</div>')
     let jsondata = json.data.data;
+
     for (var i = 0, len = jsondata.length; i < len; i++) {
       let jsdata = jsondata[i];
       let xlist = $('<li></li>')
       xlist.append(row_CasesByCounty(jsdata));
       statsList.append(xlist);
     }
-    
-    statsDiv.append(statsList);
-    
+
+    statsDiv.append(statsList); 
     statsDiv.append('<div class="stats-footer"> vezi <a href="https://covid19.geo-spatial.org/dashboard/main" target="_blank"><u>hartă</u></a></div>')
     statsDiv.append(togglejud);
     $('#togglejudete a').click(function () {
@@ -41,4 +43,26 @@ function row_CasesByCounty(jsdata){
 
 fetchJson(baseuri + 'getCasesByCounty');
 
-// todo, try to get live json, if not, revert to local
+/*  show url previews on hover 
+- - - - - - - - - - - - - - - - - - - - - */
+
+$("#tehnav").hover(
+  function () {
+    alert('x');
+    $(this).addClass("hover");
+  }, function () {
+    $(this).removeClass("hover");
+  }
+);
+
+
+$("h4").hover(
+  function () {
+    alert('xx2');
+    $(this).addClass("hover");
+  }, function () {
+    $(this).removeClass("hover");
+  }
+);
+
+
