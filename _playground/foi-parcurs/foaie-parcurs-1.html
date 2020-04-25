@@ -1,0 +1,535 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Foaie de parcurs C19</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="stationery/paper.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4
+    }
+
+    body {
+      /* font-family: sans-serif; */
+      font-family: 'Comic Sans MS', 'Comic Neue', cursive;
+      font-size: 11pt;
+      font-weight: 700;
+    }
+
+    .tehdate input {
+      font-family: 'Comic Sans MS', 'Comic Neue', cursive;
+    }
+
+    body * {
+      font-size: 11pt;
+    }
+
+    @media screen {
+      #toolbox {
+        position: fixed;
+        left: 1em;
+        top: 1em;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: wheat;
+        border: 1px dotted #999;
+        padding: 1em;
+      }
+    }
+
+    span {
+      display: none;
+    }
+
+    li:hover span {
+      display: inline-block;
+      position: absolute;
+      background-color: lightyellow;
+      padding: 1ex;
+      border: 1px dotted #999;
+    }
+
+    @media print {
+      .hide-print {
+        display: none;
+      }
+    }
+
+    input[type="datetime-local"],
+    input[type="text"] {
+      border: none;
+      border-bottom: 1px dashed #AAC;
+      outline: none;
+    }
+
+    input[type="text"]:hover {
+      box-shadow: 0 3px 0 rgba(137, 43, 226, 0.568);
+    }
+
+    li.item {
+      margin-bottom: 2px;
+    }
+
+    .item label {
+      margin-right: 1em;
+      width: 6em;
+      display: inline-block;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto;
+    }
+
+    .grid-item {
+      padding: 1em;
+      outline: 1px solid lightcoral;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ol {
+      padding-left: 1.5em;
+    }
+  </style>
+</head>
+
+<body class="A4">
+  <div class="hide-print">
+    Ordonanța Militară nr. 3/2020.
+  </div>
+  <div class="main-wrapper">
+    <!-- "padding-**mm" is optional: you can set 10, 15, 20 or 25 -->
+    <section class="sheet padding-10mm grid-container">
+      <article class="grid-item">
+        <ul>
+          <li class="item">
+            <label for="Nume">Nume</label><input type="text" name="Nume" id="Nume">
+          </li>
+          <li class="item">
+            <label for="Data">Data Nașterii</label><input type="text" name="Data" id="Data">
+          </li>
+          <li class="item">
+            <label for="Locuință">Locuință</label><input type="text" name="Locuință" id="Locuință">
+          </li>
+          <li class="item">
+            <label for="Deplasare">Deplasare</label><input type="text" name="Deplasare" id="Deplasare">
+          </li>
+
+          <li><label for="">Motiv</label>
+            <ol>
+              <li><input type="checkbox" id="reason_0"><label class="form-check-label col-form-label-sm"
+                  for="reason_0">interes
+                  profesional<span> , inclusiv între locuință/gospodărie și locul/locurile de desfășurare a activității
+                    profesionale
+                    și înapoi; </span></label></li>
+              <li><input type="checkbox" id="reason_1"><label class="form-check-label col-form-label-sm"
+                  for="reason_1">asigurarea de bunuri <span> care acoperă necesitățile de bază ale persoanelor și
+                    animalelor de
+                    companie/domestice;
+                  </span></label></li>
+              <li><input type="checkbox" id="reason_2"><label class="form-check-label col-form-label-sm"
+                  for="reason_2">asistență
+                  medicală <span> care nu poate fi amânată și nici realizată de la distanță; </span></label></li>
+              <li><input type="checkbox" id="reason_3"><label class="form-check-label col-form-label-sm"
+                  for="reason_3">motive
+                  justificate<span> , precum îngrijirea/ însoțirea unui minor/copilului, asistența persoanelor
+                    vârstnice,
+                    bolnave
+                    sau cu dizabilități ori deces al unui membru de familie; </span></label></li>
+              <li><input type="checkbox" id="reason_4"><label class="form-check-label col-form-label-sm"
+                  for="reason_4">activitate fizică individuală<span> (cu excluderea oricăror activități sportive de
+                    echipă/ colective)
+                    sau
+                    pentru
+                    nevoile animalelor de companie/domestice, în apropierea locuințeideplasare scurtă, lângă domiciliu,
+                    pentru
+                    desfășurarea de activități fizice individuale, în aer liber, cu excluderea oricărei forme de
+                    activitate
+                    sportivă
+                    colectivă; </span></label></li>
+              <li><input type="checkbox" id="reason_5"><label class="form-check-label col-form-label-sm"
+                  for="reason_5">realizarea de activități agricole;</label></li>
+              <li><input type="checkbox" id="reason_6"><label class="form-check-label col-form-label-sm"
+                  for="reason_6">donarea
+                  de sânge<span> , la centrele de transfuzie sanguină; </span></label></li>
+              <li><input type="checkbox" id="reason_7"><label class="form-check-label col-form-label-sm"
+                  for="reason_7">scopuri
+                  umanitare sau de voluntariat;</label></li>
+              <li><input type="checkbox" id="reason_8"><label class="form-check-label col-form-label-sm"
+                  for="reason_8">comercializarea de produse agroalimentare <span>(în cazul producătorilor
+                    agricoli)</span></label></li>
+              <li><input type="checkbox" id="reason_9"><label class="form-check-label col-form-label-sm"
+                  for="reason_9">asigurarea de bunuri necesare <span>desfășurării activității
+                    profesionale.</span></label></li>
+            </ol>
+          </li>
+          <li class="tehdate item"><label for="data">data</label><input type="datetime-local" name="data" id="data">
+          </li>
+        </ul>
+      </article>
+      <article class="grid-item">
+        <ul>
+          <li class="item">
+            <label for="Nume">Nume</label><input type="text" name="Nume" id="Nume">
+          </li>
+          <li class="item">
+            <label for="Data">Data Nașterii</label><input type="text" name="Data" id="Data">
+          </li>
+          <li class="item">
+            <label for="Locuință">Locuință</label><input type="text" name="Locuință" id="Locuință">
+          </li>
+          <li class="item">
+            <label for="Deplasare">Deplasare</label><input type="text" name="Deplasare" id="Deplasare">
+          </li>
+
+          <li><label for="">Motiv</label>
+            <ol>
+              <li><input type="checkbox" id="reason_0"><label class="form-check-label col-form-label-sm"
+                  for="reason_0">interes
+                  profesional<span> , inclusiv între locuință/gospodărie și locul/locurile de desfășurare a activității
+                    profesionale
+                    și înapoi; </span></label></li>
+              <li><input type="checkbox" id="reason_1"><label class="form-check-label col-form-label-sm"
+                  for="reason_1">asigurarea de bunuri <span> care acoperă necesitățile de bază ale persoanelor și
+                    animalelor de
+                    companie/domestice;
+                  </span></label></li>
+              <li><input type="checkbox" id="reason_2"><label class="form-check-label col-form-label-sm"
+                  for="reason_2">asistență
+                  medicală <span> care nu poate fi amânată și nici realizată de la distanță; </span></label></li>
+              <li><input type="checkbox" id="reason_3"><label class="form-check-label col-form-label-sm"
+                  for="reason_3">motive
+                  justificate<span> , precum îngrijirea/ însoțirea unui minor/copilului, asistența persoanelor
+                    vârstnice,
+                    bolnave
+                    sau cu dizabilități ori deces al unui membru de familie; </span></label></li>
+              <li><input type="checkbox" id="reason_4"><label class="form-check-label col-form-label-sm"
+                  for="reason_4">activitate fizică individuală<span> (cu excluderea oricăror activități sportive de
+                    echipă/ colective)
+                    sau
+                    pentru
+                    nevoile animalelor de companie/domestice, în apropierea locuințeideplasare scurtă, lângă domiciliu,
+                    pentru
+                    desfășurarea de activități fizice individuale, în aer liber, cu excluderea oricărei forme de
+                    activitate
+                    sportivă
+                    colectivă; </span></label></li>
+              <li><input type="checkbox" id="reason_5"><label class="form-check-label col-form-label-sm"
+                  for="reason_5">realizarea de activități agricole;</label></li>
+              <li><input type="checkbox" id="reason_6"><label class="form-check-label col-form-label-sm"
+                  for="reason_6">donarea
+                  de sânge<span> , la centrele de transfuzie sanguină; </span></label></li>
+              <li><input type="checkbox" id="reason_7"><label class="form-check-label col-form-label-sm"
+                  for="reason_7">scopuri
+                  umanitare sau de voluntariat;</label></li>
+              <li><input type="checkbox" id="reason_8"><label class="form-check-label col-form-label-sm"
+                  for="reason_8">comercializarea de produse agroalimentare <span>(în cazul producătorilor
+                    agricoli)</span></label></li>
+              <li><input type="checkbox" id="reason_9"><label class="form-check-label col-form-label-sm"
+                  for="reason_9">asigurarea de bunuri necesare <span>desfășurării activității
+                    profesionale.</span></label></li>
+            </ol>
+          </li>
+          <li class="tehdate item"><label for="data">data</label><input type="datetime-local" name="data" id="data">
+          </li>
+        </ul>
+
+      </article>
+      <article class="grid-item">
+        <ul>
+          <li class="item">
+            <label for="Nume">Nume</label><input type="text" name="Nume" id="Nume">
+          </li>
+          <li class="item">
+            <label for="Data">Data Nașterii</label><input type="text" name="Data" id="Data">
+          </li>
+          <li class="item">
+            <label for="Locuință">Locuință</label><input type="text" name="Locuință" id="Locuință">
+          </li>
+          <li class="item">
+            <label for="Deplasare">Deplasare</label><input type="text" name="Deplasare" id="Deplasare">
+          </li>
+
+          <li><label for="">Motiv</label>
+            <ol>
+              <li><input type="checkbox" id="reason_0"><label class="form-check-label col-form-label-sm"
+                  for="reason_0">interes
+                  profesional<span> , inclusiv între locuință/gospodărie și locul/locurile de desfășurare a activității
+                    profesionale
+                    și înapoi; </span></label></li>
+              <li><input type="checkbox" id="reason_1"><label class="form-check-label col-form-label-sm"
+                  for="reason_1">asigurarea de bunuri <span> care acoperă necesitățile de bază ale persoanelor și
+                    animalelor de
+                    companie/domestice;
+                  </span></label></li>
+              <li><input type="checkbox" id="reason_2"><label class="form-check-label col-form-label-sm"
+                  for="reason_2">asistență
+                  medicală <span> care nu poate fi amânată și nici realizată de la distanță; </span></label></li>
+              <li><input type="checkbox" id="reason_3"><label class="form-check-label col-form-label-sm"
+                  for="reason_3">motive
+                  justificate<span> , precum îngrijirea/ însoțirea unui minor/copilului, asistența persoanelor
+                    vârstnice,
+                    bolnave
+                    sau cu dizabilități ori deces al unui membru de familie; </span></label></li>
+              <li><input type="checkbox" id="reason_4"><label class="form-check-label col-form-label-sm"
+                  for="reason_4">activitate fizică individuală<span> (cu excluderea oricăror activități sportive de
+                    echipă/ colective)
+                    sau
+                    pentru
+                    nevoile animalelor de companie/domestice, în apropierea locuințeideplasare scurtă, lângă domiciliu,
+                    pentru
+                    desfășurarea de activități fizice individuale, în aer liber, cu excluderea oricărei forme de
+                    activitate
+                    sportivă
+                    colectivă; </span></label></li>
+              <li><input type="checkbox" id="reason_5"><label class="form-check-label col-form-label-sm"
+                  for="reason_5">realizarea de activități agricole;</label></li>
+              <li><input type="checkbox" id="reason_6"><label class="form-check-label col-form-label-sm"
+                  for="reason_6">donarea
+                  de sânge<span> , la centrele de transfuzie sanguină; </span></label></li>
+              <li><input type="checkbox" id="reason_7"><label class="form-check-label col-form-label-sm"
+                  for="reason_7">scopuri
+                  umanitare sau de voluntariat;</label></li>
+              <li><input type="checkbox" id="reason_8"><label class="form-check-label col-form-label-sm"
+                  for="reason_8">comercializarea de produse agroalimentare <span>(în cazul producătorilor
+                    agricoli)</span></label></li>
+              <li><input type="checkbox" id="reason_9"><label class="form-check-label col-form-label-sm"
+                  for="reason_9">asigurarea de bunuri necesare <span>desfășurării activității
+                    profesionale.</span></label></li>
+            </ol>
+          </li>
+          <li class="tehdate item"><label for="data">data</label><input type="datetime-local" name="data" id="data">
+          </li>
+        </ul>
+
+      </article>
+      <article class="grid-item">
+        <ul>
+          <li class="item">
+            <label for="Nume">Nume</label><input type="text" name="Nume" id="Nume">
+          </li>
+          <li class="item">
+            <label for="Data">Data Nașterii</label><input type="text" name="Data" id="Data">
+          </li>
+          <li class="item">
+            <label for="Locuință">Locuință</label><input type="text" name="Locuință" id="Locuință">
+          </li>
+          <li class="item">
+            <label for="Deplasare">Deplasare</label><input type="text" name="Deplasare" id="Deplasare">
+          </li>
+
+          <li><label for="">Motiv</label>
+            <ol>
+              <li><input type="checkbox" id="reason_0"><label class="form-check-label col-form-label-sm"
+                  for="reason_0">interes
+                  profesional<span> , inclusiv între locuință/gospodărie și locul/locurile de desfășurare a activității
+                    profesionale
+                    și înapoi; </span></label></li>
+              <li><input type="checkbox" id="reason_1"><label class="form-check-label col-form-label-sm"
+                  for="reason_1">asigurarea de bunuri <span> care acoperă necesitățile de bază ale persoanelor și
+                    animalelor de
+                    companie/domestice;
+                  </span></label></li>
+              <li><input type="checkbox" id="reason_2"><label class="form-check-label col-form-label-sm"
+                  for="reason_2">asistență
+                  medicală <span> care nu poate fi amânată și nici realizată de la distanță; </span></label></li>
+              <li><input type="checkbox" id="reason_3"><label class="form-check-label col-form-label-sm"
+                  for="reason_3">motive
+                  justificate<span> , precum îngrijirea/ însoțirea unui minor/copilului, asistența persoanelor
+                    vârstnice,
+                    bolnave
+                    sau cu dizabilități ori deces al unui membru de familie; </span></label></li>
+              <li><input type="checkbox" id="reason_4"><label class="form-check-label col-form-label-sm"
+                  for="reason_4">activitate fizică individuală<span> (cu excluderea oricăror activități sportive de
+                    echipă/ colective)
+                    sau
+                    pentru
+                    nevoile animalelor de companie/domestice, în apropierea locuințeideplasare scurtă, lângă domiciliu,
+                    pentru
+                    desfășurarea de activități fizice individuale, în aer liber, cu excluderea oricărei forme de
+                    activitate
+                    sportivă
+                    colectivă; </span></label></li>
+              <li><input type="checkbox" id="reason_5"><label class="form-check-label col-form-label-sm"
+                  for="reason_5">realizarea de activități agricole;</label></li>
+              <li><input type="checkbox" id="reason_6"><label class="form-check-label col-form-label-sm"
+                  for="reason_6">donarea
+                  de sânge<span> , la centrele de transfuzie sanguină; </span></label></li>
+              <li><input type="checkbox" id="reason_7"><label class="form-check-label col-form-label-sm"
+                  for="reason_7">scopuri
+                  umanitare sau de voluntariat;</label></li>
+              <li><input type="checkbox" id="reason_8"><label class="form-check-label col-form-label-sm"
+                  for="reason_8">comercializarea de produse agroalimentare <span>(în cazul producătorilor
+                    agricoli)</span></label></li>
+              <li><input type="checkbox" id="reason_9"><label class="form-check-label col-form-label-sm"
+                  for="reason_9">asigurarea de bunuri necesare <span>desfășurării activității
+                    profesionale.</span></label></li>
+            </ol>
+          </li>
+          <li class="tehdate item"><label for="data">data</label><input type="datetime-local" name="data" id="data">
+          </li>
+        </ul>
+
+      </article>
+      <article class="grid-item">
+        <ul>
+          <li class="item">
+            <label for="Nume">Nume</label><input type="text" name="Nume" id="Nume">
+          </li>
+          <li class="item">
+            <label for="Data">Data Nașterii</label><input type="text" name="Data" id="Data">
+          </li>
+          <li class="item">
+            <label for="Locuință">Locuință</label><input type="text" name="Locuință" id="Locuință">
+          </li>
+          <li class="item">
+            <label for="Deplasare">Deplasare</label><input type="text" name="Deplasare" id="Deplasare">
+          </li>
+
+          <li><label for="">Motiv</label>
+            <ol>
+              <li><input type="checkbox" id="reason_0"><label class="form-check-label col-form-label-sm"
+                  for="reason_0">interes
+                  profesional<span> , inclusiv între locuință/gospodărie și locul/locurile de desfășurare a activității
+                    profesionale
+                    și înapoi; </span></label></li>
+              <li><input type="checkbox" id="reason_1"><label class="form-check-label col-form-label-sm"
+                  for="reason_1">asigurarea de bunuri <span> care acoperă necesitățile de bază ale persoanelor și
+                    animalelor
+                    de
+                    companie/domestice;
+                  </span></label></li>
+              <li><input type="checkbox" id="reason_2"><label class="form-check-label col-form-label-sm"
+                  for="reason_2">asistență
+                  medicală <span> care nu poate fi amânată și nici realizată de la distanță; </span></label></li>
+              <li><input type="checkbox" id="reason_3"><label class="form-check-label col-form-label-sm"
+                  for="reason_3">motive
+                  justificate<span> , precum îngrijirea/ însoțirea unui minor/copilului, asistența persoanelor
+                    vârstnice,
+                    bolnave
+                    sau cu dizabilități ori deces al unui membru de familie; </span></label></li>
+              <li><input type="checkbox" id="reason_4"><label class="form-check-label col-form-label-sm"
+                  for="reason_4">activitate fizică individuală<span> (cu excluderea oricăror activități sportive de
+                    echipă/
+                    colective)
+                    sau
+                    pentru
+                    nevoile animalelor de companie/domestice, în apropierea locuințeideplasare scurtă, lângă domiciliu,
+                    pentru
+                    desfășurarea de activități fizice individuale, în aer liber, cu excluderea oricărei forme de
+                    activitate
+                    sportivă
+                    colectivă; </span></label></li>
+              <li><input type="checkbox" id="reason_5"><label class="form-check-label col-form-label-sm"
+                  for="reason_5">realizarea de activități agricole;</label></li>
+              <li><input type="checkbox" id="reason_6"><label class="form-check-label col-form-label-sm"
+                  for="reason_6">donarea
+                  de sânge<span> , la centrele de transfuzie sanguină; </span></label></li>
+              <li><input type="checkbox" id="reason_7"><label class="form-check-label col-form-label-sm"
+                  for="reason_7">scopuri
+                  umanitare sau de voluntariat;</label></li>
+              <li><input type="checkbox" id="reason_8"><label class="form-check-label col-form-label-sm"
+                  for="reason_8">comercializarea de produse agroalimentare <span>(în cazul producătorilor
+                    agricoli)</span></label></li>
+              <li><input type="checkbox" id="reason_9"><label class="form-check-label col-form-label-sm"
+                  for="reason_9">asigurarea de bunuri necesare <span>desfășurării activității
+                    profesionale.</span></label>
+              </li>
+            </ol>
+          </li>
+          <li class="tehdate item"><label for="data">data</label><input type="datetime-local" name="data" id="data">
+          </li>
+        </ul>
+
+      </article>
+      <article class="grid-item">
+        <ul>
+          <li class="item">
+            <label for="Nume">Nume</label><input type="text" name="Nume" id="Nume">
+          </li>
+          <li class="item">
+            <label for="Data">Data Nașterii</label><input type="text" name="Data" id="Data">
+          </li>
+          <li class="item">
+            <label for="Locuință">Locuință</label><input type="text" name="Locuință" id="Locuință">
+          </li>
+          <li class="item">
+            <label for="Deplasare">Deplasare</label><input type="text" name="Deplasare" id="Deplasare">
+          </li>
+
+          <li><label for="">Motiv</label>
+            <ol>
+              <li><input type="checkbox" id="reason_0"><label class="form-check-label col-form-label-sm"
+                  for="reason_0">interes
+                  profesional<span> , inclusiv între locuință/gospodărie și locul/locurile de desfășurare a activității
+                    profesionale
+                    și înapoi; </span></label></li>
+              <li><input type="checkbox" id="reason_1"><label class="form-check-label col-form-label-sm"
+                  for="reason_1">asigurarea de bunuri <span> care acoperă necesitățile de bază ale persoanelor și
+                    animalelor
+                    de
+                    companie/domestice;
+                  </span></label></li>
+              <li><input type="checkbox" id="reason_2"><label class="form-check-label col-form-label-sm"
+                  for="reason_2">asistență
+                  medicală <span> care nu poate fi amânată și nici realizată de la distanță; </span></label></li>
+              <li><input type="checkbox" id="reason_3"><label class="form-check-label col-form-label-sm"
+                  for="reason_3">motive
+                  justificate<span> , precum îngrijirea/ însoțirea unui minor/copilului, asistența persoanelor
+                    vârstnice,
+                    bolnave
+                    sau cu dizabilități ori deces al unui membru de familie; </span></label></li>
+              <li><input type="checkbox" id="reason_4"><label class="form-check-label col-form-label-sm"
+                  for="reason_4">activitate fizică individuală<span> (cu excluderea oricăror activități sportive de
+                    echipă/
+                    colective)
+                    sau
+                    pentru
+                    nevoile animalelor de companie/domestice, în apropierea locuințeideplasare scurtă, lângă domiciliu,
+                    pentru
+                    desfășurarea de activități fizice individuale, în aer liber, cu excluderea oricărei forme de
+                    activitate
+                    sportivă
+                    colectivă; </span></label></li>
+              <li><input type="checkbox" id="reason_5"><label class="form-check-label col-form-label-sm"
+                  for="reason_5">realizarea de activități agricole;</label></li>
+              <li><input type="checkbox" id="reason_6"><label class="form-check-label col-form-label-sm"
+                  for="reason_6">donarea
+                  de sânge<span> , la centrele de transfuzie sanguină; </span></label></li>
+              <li><input type="checkbox" id="reason_7"><label class="form-check-label col-form-label-sm"
+                  for="reason_7">scopuri
+                  umanitare sau de voluntariat;</label></li>
+              <li><input type="checkbox" id="reason_8"><label class="form-check-label col-form-label-sm"
+                  for="reason_8">comercializarea de produse agroalimentare <span>(în cazul producătorilor
+                    agricoli)</span></label></li>
+              <li><input type="checkbox" id="reason_9"><label class="form-check-label col-form-label-sm"
+                  for="reason_9">asigurarea de bunuri necesare <span>desfășurării activității
+                    profesionale.</span></label>
+              </li>
+            </ol>
+          </li>
+          <li class="tehdate item"><label for="data">data</label><input type="datetime-local" name="data" id="data">
+          </li>
+        </ul>
+
+      </article>
+
+    </section>
+    <div id="toolbox" class="hide-print">
+      <a id="printbtn" class=" btn" href="javascript:window.print()">PRINT</a> <br>
+      <a id="dl" class=" btn" href="#">&#9660; PDF</a>
+    </div>
+  </div>
+
+</body>
+
+</html>
